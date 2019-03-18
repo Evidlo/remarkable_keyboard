@@ -2,6 +2,8 @@
 
 Use your reMarkable as a wireless mouse and keyboard.
 
+[Demo Video](https://peertube.live/videos/watch/f5f749f1-3ce0-4e0e-9946-b7a23dbef1ac)
+
 <img src="photo.jpg" width=500>
 
 # Usage
