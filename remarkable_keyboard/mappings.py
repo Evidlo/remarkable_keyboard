@@ -25,7 +25,7 @@ class Mapping(object):
                     self.k.release(Key.alt)
                     self.k.release(Key.shift_r)
                     self.k.release(Key.ctrl_r)
-                    self.k.release(Key.alt_r)
+                    self.k.release(Key.alt_gr)
             except X11Error:
                 log.error(f"X11Error for key {key}")
 
