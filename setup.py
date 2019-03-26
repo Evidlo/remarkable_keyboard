@@ -22,7 +22,8 @@ setup(
         'paramiko',
         'screeninfo',
         'pynput',
-        'remarkable-mouse'
+        'remarkable-mouse',
+        'sortedcontainers'
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
