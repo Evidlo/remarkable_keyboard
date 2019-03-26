@@ -102,7 +102,7 @@ def read_tablet(args):
 
             # handle x direction (rotated)
             if e_code == e_code_finger_ypos:
-                log.debug(f'{e_value}')
+                log.debug(e_value)
                 x = e_value
                 monitor_x, monitor_y = map_finger(
                     x, y,
@@ -120,7 +120,7 @@ def read_tablet(args):
 
             # handle y direction (rotated)
             elif e_code == e_code_finger_xpos:
-                log.debug(f'\t{e_value}')
+                log.debug('\t{}'.format(e_value))
                 y = e_value
                 monitor_x, monitor_y = map_finger(
                     x, y,
@@ -138,7 +138,7 @@ def read_tablet(args):
 
             # handle pressure
             elif e_code == e_code_finger_pressure:
-                log.debug(f'\t\t{e_value}')
+                log.debug('\t\t{}'.format(e_value))
                 pass
 
             # handle finger lift
@@ -147,13 +147,13 @@ def read_tablet(args):
                     log.debug('\t\t\tfinger up')
                     last_x = None
                     last_y = None
-                    log.debug(f"start position: {start_x} {start_y}")
+                    log.debug('start position:{}  {}'.format(start_x, start_y))
                     # FIXME: I have no freaking idea why, but the keyboard lags slightly unless
                     # we print something to console here
                     print(' \r', end='')
                     # if the mouse hasn't moved much since the last finger lift, assume it was a touch
                     if moves < 8:
-                        log.debug(f"touch, moves:{moves}")
+                        log.debug('touch, moves:{}'.format(moves))
                         image_x, image_y = map_finger(
                             start_x, start_y,
                             finger_width, finger_height,
@@ -161,7 +161,7 @@ def read_tablet(args):
                         )
                         mapping.call_action(image_x, image_y)
                     else:
-                        log.debug(f"drag, moves:{moves}")
+                        log.debug('drag, moves:{}'.format(moves))
 
                     moves = 0
 
