@@ -7,10 +7,10 @@ setup(
     packages=['remarkable_keyboard'],
     author="Evan Widloski",
     author_email="evan@evanw.org",
-    description="use reMarkable as a graphics tablet",
+    description="use reMarkable as a wireless mouse and keyboard",
     long_description=open('README.md').read(),
     license="GPLv3",
-    keywords="remarkable tablet evdev",
+    keywords="remarkable tablet evdev mouse keyboard",
     url="https://github.com/evidlo/remarkable_keyboard",
     entry_points={
         'console_scripts': [
@@ -22,7 +22,7 @@ setup(
         'paramiko',
         'screeninfo',
         'pynput',
-        'remarkable-mouse',
+        'remarkable-mouse>=5',
         'sortedcontainers'
     ],
     classifiers=[
