@@ -25,7 +25,7 @@ class Mapping(object):
                     self.k.release(Key.alt)
                     self.k.release(Key.shift_r)
                     self.k.release(Key.ctrl_r)
-                    self.k.release(Key.alt_r)
+
             except X11Error:
                 log.error(f"X11Error for key {key}")
 
@@ -44,38 +44,8 @@ class Mapping(object):
         # call function
         row[row.keys()[col_index]]()
 
-class ExampleMapping(Mapping):
-    """Example mapping
-
-           +--- x
-           |
-           |  +-------------------+-+   ---
-           y  |         |         |o|    |
-              |    a    |    b    | |    |
-              |---------+---------|o|  1404
-              |         |         | |    |
-              |    c    |    d    |o|    |
-              +-------------------+-+   ---
-
-              |-------1872--------|
-
-    Coordinates defined in terms of image size: 1872 x 1404
-    """
-    def regions(self):
-        return SortedDict({
-            1404 // 2: SortedDict({
-                1872 // 2: lambda: self.k.type('a'),
-                1872: lambda: self.k.type('b')
-            }),
-            1404: SortedDict({
-                1872 // 2: lambda: self.k.type('c'),
-                1872: lambda: self.k.type('d')
-            })
-        })
-
 
 class KeyboardMapping(Mapping):
-
     def regions(self):
         return SortedDict({
             260: SortedDict({
@@ -162,4 +132,34 @@ class KeyboardMapping(Mapping):
                 1747: self.action(Key.up),
                 1872: self.action(Key.right)
             }),
+        })
+
+
+class ExampleMapping(Mapping):
+    """Example mapping
+
+           +--- x
+           |
+           |  +-------------------+-+   ---
+           y  |         |         |o|    |
+              |    a    |    b    | |    |
+              |---------+---------|o|  1404
+              |         |         | |    |
+              |    c    |    d    |o|    |
+              +-------------------+-+   ---
+
+              |-------1872--------|
+
+    Coordinates defined in terms of image size: 1872 x 1404
+    """
+    def regions(self):
+        return SortedDict({
+            1404 // 2: SortedDict({
+                1872 // 2: lambda: self.k.type('a'),
+                1872: lambda: self.k.type('b')
+            }),
+            1404: SortedDict({
+                1872 // 2: lambda: self.k.type('c'),
+                1872: lambda: self.k.type('d')
+            })
         })
