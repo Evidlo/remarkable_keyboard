@@ -9,6 +9,7 @@ setup(
     author_email="evan@evanw.org",
     description="use reMarkable as a wireless mouse and keyboard",
     long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     license="GPLv3",
     keywords="remarkable tablet evdev mouse keyboard",
     url="https://github.com/evidlo/remarkable_keyboard",
