@@ -19,6 +19,7 @@ setup(
         ]
     },
     install_requires=[
+        'pycryptodome',
         'paramiko',
         'screeninfo',
         'pynput',

@@ -12,7 +12,7 @@ import paramiko
 from screeninfo import get_monitors
 from pynput.mouse import Button, Controller as MouseController
 from pynput.keyboard import Key, Controller as KeyboardController
-from remarkable_mouse.remarkable_mouse import open_remote_device
+from remarkable_mouse.remarkable_mouse import open_rm_inputs
 from remarkable_keyboard.mappings import KeyboardMapping
 
 
@@ -88,7 +88,7 @@ def read_tablet(args):
     monitor = get_monitors()[0]
     log.debug('Chose monitor: {}'.format(monitor))
 
-    stdout = open_remote_device(args, file='/dev/input/event1')
+    touch = open_rm_inputs(address=args.address, key=args.key, password=args.password)['touch']
 
     mouse = MouseController()
     keyboard = KeyboardController()
@@ -96,7 +96,7 @@ def read_tablet(args):
     mapping = KeyboardMapping(mouse, keyboard)
 
     while True:
-        _, _, e_type, e_code, e_value = struct.unpack('2IHHi', stdout.read(16))
+        _, _, e_type, e_code, e_value = struct.unpack('2IHHi', touch.read(16))
 
         if e_type == e_type_abs:
 
