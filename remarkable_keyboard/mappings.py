@@ -1,7 +1,7 @@
 import logging
 from pynput.keyboard import Key
 from pynput.mouse import Button
-from pynput._util.xorg import X11Error
+# from pynput._util.xorg import X11Error
 from sortedcontainers import SortedDict
 
 log = logging.getLogger(__name__)
@@ -26,7 +26,8 @@ class Mapping(object):
                     self.k.release(Key.shift_r)
                     self.k.release(Key.ctrl_r)
 
-            except X11Error:
+            # except X11Error:
+            except Exception:
                 log.error(f"X11Error for key {key}")
 
         return action
