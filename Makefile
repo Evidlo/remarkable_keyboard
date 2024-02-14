@@ -7,4 +7,4 @@ dist:
 
 .PHONY: pypi
 pypi: dist
-	twine upload dist/*
+	twine upload -u __token__ dist/*
